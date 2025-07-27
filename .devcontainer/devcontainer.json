@@ -1,12 +1,13 @@
 {
   "name": "Python 3 Development Container Template",
   "dockerFile": "Dockerfile",
-
   "customizations": {
     "settings": {
       "files.eol": "\n",
       "editor.formatOnSave": true,
-      "python.testing.pytestArgs": ["."],
+      "python.testing.pytestArgs": [
+        "."
+      ],
       "python.testing.unittestEnabled": false,
       "python.testing.pytestEnabled": true,
       "python.formatting.provider": "black",
@@ -34,12 +35,13 @@
       }
     }
   },
-
   "postCreateCommand": ".devcontainer/scripts/postCreate.sh",
-
+  // Enable host networking for better network scanning capabilities
+  "runArgs": [
+    "--network=host"
+  ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   // "forwardPorts": [],
-
   // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
   "remoteUser": "root"
 }
